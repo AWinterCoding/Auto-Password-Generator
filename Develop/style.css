@@ -97,6 +97,16 @@ button[disabled] {
   float: right;
 }
 
+.checkbox-footer {
+  text-align: center;
+  /* display: none; */
+}
+
+#numOfChars {
+  width: 50px;
+  margin: 14px;
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
