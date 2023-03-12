@@ -107,6 +107,7 @@ function writePassword() {
 //Generates password from the combined arrays
 function generatePassword() {
   var password = "";
+  var outputCheck = false;
   console.log("Generating Password");
 
   //grabs the number in the element to determine number of chars
@@ -116,12 +117,15 @@ function generatePassword() {
   var passwordSelectorArray = appendPasswordString();
 
   //randomly gathers the desired amount of characters from all possible characters
-  for (i = 0; i < charNum.value; i++) {
-    password =
-      password +
-      getRandomCharacter(passwordSelectorArray.length, passwordSelectorArray);
+  while (!outputCheck) {
+    for (i = 0; i < charNum.value; i++) {
+      password =
+        password +
+        getRandomCharacter(passwordSelectorArray.length, passwordSelectorArray);
+    }
+    //unless the ouput is validated the creation will loop
+    outputCheck = outputValidation(password);
   }
-
   //returns the password generated
   return password;
 }
@@ -191,7 +195,7 @@ generateBtn.addEventListener("click", function () {
   }
 });
 
-//input validation against having more checkboxes than characters
+//input validation against having more checkboxes than characters, having no characters set and having no checkboxes set
 function inputValidation(charNum) {
   if (charNum == "") {
     alert("No input for how many characters you'd like");
@@ -214,4 +218,43 @@ function inputValidation(charNum) {
     console.log("Criteria Accepted");
     return true;
   }
+}
+
+//This is the outputValidation Function, if the password doesn't contain one of the requested values, this returns false
+function outputValidation(password) {
+  outputValidated = true;
+
+  if (lowerCB.value == "true") {
+    if (!outputIndividualValidation(password, lowerArray)) {
+      outputValidated = false;
+    }
+  }
+  if (upCB.value == "true") {
+    if (!outputIndividualValidation(password, upperArray)) {
+      outputValidated = false;
+    }
+  }
+  if (numCB.value == "true") {
+    if (!outputIndividualValidation(password, numbersArray)) {
+      outputValidated = false;
+    }
+  }
+  if (specCB.value == "true") {
+    if (!outputIndividualValidation(password, specialArray)) {
+      outputValidated = false;
+    }
+  }
+  return outputValidated;
+}
+
+//extension of the ouput validation, this is meant to measure the individual arrays to see if the password contains the desired value
+//this function is mostly to keep our code as DRY as possible.
+function outputIndividualValidation(password, inputArray) {
+  containsValue = false;
+  for (i = 0; i < inputArray.length; i++) {
+    if (password.includes(inputArray[i])) {
+      containsValue = true;
+    }
+  }
+  return containsValue;
 }
