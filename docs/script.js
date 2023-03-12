@@ -204,19 +204,19 @@ function inputValidation(charNum) {
   if (charNum == "") {
     alert("No input for how many characters you'd like");
     return false;
-  } else if (
-    lowCB !== "true" &&
-    upCB.value !== "true" &&
-    numCB.value !== "true" &&
-    specCB.value !== "true"
-  ) {
-    alert("Error, no valid checkbox selections");
-    return false;
   } else if (charNum < 8 || charNum > 128) {
     console.log(charNum);
     alert(
       "Your password must be bigger than 8 chars long and smaller than 128 chars long"
     );
+    return false;
+  } else if (
+    lowCB.value !== "true" &&
+    upCB.value !== "true" &&
+    numCB.value !== "true" &&
+    specCB.value !== "true"
+  ) {
+    alert("Error, no valid checkbox selections");
     return false;
   } else {
     console.log("Criteria Accepted");
