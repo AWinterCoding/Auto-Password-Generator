@@ -99,8 +99,8 @@ button[disabled] {
 
 .checkbox-footer {
   text-align: center;
-  /* display: none; */
   font-weight: bold;
+  display: none;
 }
 .charCheck {
   accent-color: hsl(360, 91%, 36%);

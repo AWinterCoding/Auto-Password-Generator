@@ -187,11 +187,15 @@ specCB.addEventListener("click", function () {
 // Add event listener to generate button
 //event listener looks at the number of chars and initiates the generate process or halts it
 generateBtn.addEventListener("click", function () {
-  //charNum defined in here because otherwise it returns undefined from an empty DOM
-  var charNum = document.querySelector("#numOfChars").value;
-  //Data Validation
-  if (inputValidation(charNum)) {
-    writePassword();
+  if (document.querySelector(".checkbox-footer").style.display != "block") {
+    document.querySelector("#checkbox-footer").style.display = "block";
+  } else {
+    //charNum defined in here because otherwise it returns undefined from an empty DOM
+    var charNum = document.querySelector("#numOfChars").value;
+    //Data Validation
+    if (inputValidation(charNum)) {
+      writePassword();
+    }
   }
 });
 
