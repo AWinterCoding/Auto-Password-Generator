@@ -102,6 +102,9 @@ button[disabled] {
   /* display: none; */
   font-weight: bold;
 }
+.charCheck {
+  accent-color: hsl(360, 91%, 36%);
+}
 
 #numOfChars {
   width: 50px;
