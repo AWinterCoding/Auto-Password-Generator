@@ -13,7 +13,7 @@ or implementation of special characters.
 After the password is generated you can grab it from the prompt box and use it how you wish.
 
 Link to deployed Application: https://awintercoding.github.io/Auto-Password-Generator/
-AutoPasswordGeneratorScreenshot.PNG
+![alt text](https://github.com/AWinterCoding/Auto-Password-Generator/blob/main/docs/Assets/AutoPasswordGeneratorScreenshot.PNG)
 
 ## Installation
 
